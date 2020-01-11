@@ -1,5 +1,5 @@
 resource "aws_vpc" "ops-work-net" {
-  cidr_block           = "172.20.0.0/16"
+  cidr_block           = "${var.cidr_block}"                           #"172.20.0.0/16"
   enable_dns_hostnames = true
   enable_dns_support   = true
 
