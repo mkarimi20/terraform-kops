@@ -185,8 +185,8 @@ resource "aws_autoscaling_group" "master-eu-west-1c-masters-ops-work-net" {
 resource "aws_autoscaling_group" "nodes-ops-work-net" {
   name                 = "nodes.ops-work.net"
   launch_configuration = "${aws_launch_configuration.nodes-ops-work-net.id}"
-  max_size             = 3
-  min_size             = 3
+  max_size             = "${var.max_size}"
+  min_size             = "${var.min_size}"
   vpc_zone_identifier  = ["${aws_subnet.eu-west-1a-ops-work-net.id}", "${aws_subnet.eu-west-1b-ops-work-net.id}", "${aws_subnet.eu-west-1c-ops-work-net.id}"]
 
   tag = {
