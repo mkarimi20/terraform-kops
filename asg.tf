@@ -21,8 +21,8 @@ resource "aws_autoscaling_attachment" "master-eu-west-1c-masters-ops-work-net" {
 resource "aws_autoscaling_group" "bastions-ops-work-net" {
   name                 = "bastions.ops-work.net"
   launch_configuration = "${aws_launch_configuration.bastions-ops-work-net.id}"
-  max_size             = 1
-  min_size             = 1
+  max_size             = "${var.bastion_max-size}"
+  min_size             = "${var.bastion_min-size}"
   vpc_zone_identifier  = ["${aws_subnet.utility-eu-west-1a-ops-work-net.id}", "${aws_subnet.utility-eu-west-1b-ops-work-net.id}", "${aws_subnet.utility-eu-west-1c-ops-work-net.id}"]
 
   tag = {

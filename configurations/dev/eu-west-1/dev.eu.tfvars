@@ -6,3 +6,5 @@ s3_folder_type = "state"          #Will be used to set backend.tf
 s3_tfstate_file = "infrastructure.tfstate" #Will be used to set backend.tf
 max_size = "48"
 min_size = "3"
+bastion_min-size = "1"
+bastion_max-size = "1"
